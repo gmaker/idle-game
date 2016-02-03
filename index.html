@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IdleGame</title>
+    <style>
+        html, body {
+            background-color: #000000;
+            color: #eeeeee;
+        }
+
+        a {
+            color: #8080ff;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: none;
+        }
+    </style>
+</head>
+<body style="background: black;">
+<div style="text-align: center;" id="game_div">
+</div>
+<script id="sprite_vs" type="notjs">
+precision highp float;
+attribute vec2 position;
+attribute vec2 texcoord;
+attribute vec4 color;
+
+uniform mat4 u_viewMatrix;
+
+varying vec2 v_texcoord;
+varying vec4 v_col;
+
+void main() {
+  v_texcoord = texcoord / 256.0;
+  v_col = color;
+  gl_Position = u_viewMatrix * vec4(floor(position), 0.0, 1.0);
+}
+</script>
+<script id="sprite_fs" type="notjs">
+precision highp float;
+
+uniform sampler2D u_texture;
+uniform sampler2D u_palette;
+
+varying vec2 v_texcoord;
+varying vec4 v_col;
+
+void main() {
+  int colorIndex = int(texture2D(u_texture, v_texcoord).r * 255.0) / 81;
+
+  float color = 0.0;
+  if (colorIndex == 0) color = v_col.a;
+  if (colorIndex == 1) color = v_col.b;
+  if (colorIndex == 2) color = v_col.g;
+  if (colorIndex == 3) color = v_col.r;
+
+  if (color < 0.0) {
+    discard;
+  } else {
+
+    vec4 col = texture2D(u_palette, vec2(0.5, color / 255.0));
+    gl_FragColor = col ;
+  }
+
+}
+</script>
+
+<script type="text/javascript" src="libs/twgl-full.min.js"></script>
+<script type="text/javascript" src="build/application.js"></script>
+
+</body>
+</html>
