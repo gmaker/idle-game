@@ -34,7 +34,6 @@ class Entity {
         if (this.health > this.maxHealth) this.health = this.maxHealth;
         this.sp += this.spRegen + this.level.spRegen;
         if (this.sp > this.maxSp) this.sp = this.maxSp;
-        var a = 10;
     }
 
     hurt(e) {

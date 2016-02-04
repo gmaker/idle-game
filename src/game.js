@@ -86,7 +86,6 @@ class Game {
     }
 
     moveRaiderTo(e, from, to) {
-        if (from == to) return;
         e.wasDie = false;
         if (from != null) {
             from.removeEntity(e);
@@ -97,7 +96,7 @@ class Game {
 
     changeLevel(dir) {
         this.raiders.forEach(r => {
-            this.moveRaiderTo(r, this.level, this.base);
+            this.moveRaiderTo(r, r.level, this.base);
         });
         this.currentLevel = Mth.clamp(this.currentLevel + dir, 0, this.levels.length - 1);
         this.level = this.levels[this.currentLevel];
