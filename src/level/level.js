@@ -23,6 +23,22 @@ class Level extends Map {
         this.dirtColor = this.dirtColors[Mth.clamp(level, 0, this.dirtColors.length - 1)];
     }
 
+    static loadLevel(level) {
+        var bitmap = levelsData[level];
+        var result = new Level(bitmap.width, bitmap.height, "", level);
+
+        for (var y = 0; y < bitmap.height; y++){
+            for (var x = 0; x < bitmap.width; x++){
+                var c = bitmap.pixels[x + y * bitmap.width];
+                var tile = grassTile;
+                if (c == 0xffff00) tile = groundTile;
+                result.tiles[x + y * bitmap.width] = tile.id;
+            }
+        }
+
+        return result;
+    }
+
     monsterHasDied(e) {
         if (++this.diedMonsters >= this.monstersToNextLevel > 0 && this.nextLevelLock) {
             this.nextLevelLock = false;

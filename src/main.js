@@ -58,8 +58,12 @@ function launchGame() {
 }
 
 function animate(time) {
-    if (!gameComponent) gameComponent = new GameComponent(new Input(canvas));
-    gameComponent.animate(time);
+    if (!gameComponent && Bitmap.loaded()) {
+        gameComponent = new GameComponent(new Input(canvas))
+    }
+    if (gameComponent) {
+        gameComponent.animate(time);
+    }
     window.requestAnimationFrame(animate);
 }
 

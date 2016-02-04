@@ -22,11 +22,13 @@ gulp.task("application", function () {
     return gulp.src([
                      'src/math/math.js',
                      'src/math/random.js',
+                     'src/gfx/bitmap.js',
                      'src/gfx/color.js',
                      'src/gfx/texture.js',
                      'src/gfx/sprites.js',
                      'src/level/tile.js',
                      'src/level/map.js',
+                     'src/level/raid.js',
                      'src/level/level.js',
                      'src/level/base.js',
                      'src/entity/entity.js',

@@ -16,11 +16,9 @@ class Game {
         this.raiders = [new Knight(this), new Priest(this)];
 
         this.levels = [
-            new Level(32, 16, "Back yard", 0),
-            new Level(32, 16, "Woods", 1),
-            new Level(32, 16, "Lakes", 2),
-            new Level(32, 16, "LakesAA", 3),
-
+            Level.loadLevel(0),
+            Level.loadLevel(1),
+            Level.loadLevel(2),
         ];
         this.currentLevel = 0;
         this.level = this.levels[this.currentLevel];
