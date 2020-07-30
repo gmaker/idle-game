@@ -14,9 +14,7 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install the gulp package
-      run: npm install --save-dev gulp	  
-    - name: Install the gulp-install
-      run: npm install gulp-install		  
+      run: npm install --save-dev gulp gulp-sourcemaps gulp-babel gulp-concat gulp-rev gulp-plumber	gulp-connect gulp-if gulp-util gulp-uglify
     - name: Run gulp
       run: gulp application
     - name: Deploy to Server
