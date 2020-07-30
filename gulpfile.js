@@ -1,10 +1,4 @@
 var gulp = require("gulp");
-
-var install = require("gulp-install");
-
-gulp.src(["./package.json", "./bower.json"])
-  .pipe(install());
-
 var sourcemaps = require("gulp-sourcemaps");
 var babel = require("gulp-babel");
 var concat = require("gulp-concat");
@@ -16,7 +10,6 @@ var connect = require('gulp-connect');
 var gulpif = require('gulp-if');
 var gutil = require('gulp-util');
 var uglify = require('gulp-uglify');
-
 
 var config = {
     production: gutil.env.env == 'production'
