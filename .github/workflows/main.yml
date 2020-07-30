@@ -16,7 +16,7 @@ jobs:
     - name: Install deps
       run: npm install --save-dev gulp gulp-sourcemaps gulp-babel @babel/core @babel/preset-env gulp-concat gulp-rev gulp-plumber gulp-connect gulp-if gulp-util gulp-uglify gulp-watch browser-sync
     - name: Run gulp application
-      run: gulp application
+      run: gulp
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.1
       env:
