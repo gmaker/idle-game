@@ -13,9 +13,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: Install the gulp package
-      run: npm install --save-dev gulp gulp-sourcemaps gulp-babel gulp-concat gulp-rev gulp-plumber	gulp-connect gulp-if gulp-util gulp-uglify
-    - name: Run gulp
+    - name: Install deps
+      run: npm install --save-dev gulp gulp-sourcemaps gulp-babel babel-core babel-preset-env gulp-concat gulp-rev gulp-plumber	gulp-connect gulp-if gulp-util gulp-uglify  
+    - name: Run gulp application
       run: gulp application
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.1
