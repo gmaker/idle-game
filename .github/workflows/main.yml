@@ -14,7 +14,7 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install deps
-      run: npm install --save-dev gulp gulp-sourcemaps gulp-babel babel-core babel-preset-env gulp-concat gulp-rev gulp-plumber	gulp-connect gulp-if gulp-util gulp-uglify  
+      run: npm install --save-dev gulp gulp-sourcemaps gulp-babel @babel/core @babel/preset-env gulp-concat gulp-rev gulp-plumber gulp-connect gulp-if gulp-util gulp-uglify  
     - name: Run gulp application
       run: gulp application
     - name: Deploy to Server
