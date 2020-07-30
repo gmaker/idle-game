@@ -14,8 +14,12 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install npm dependencies
-      run: npm install gulp
-    - name: Gulp
+      run: npm install
+	- name: Install gulp client
+      run: npm install --global gulp-cli
+	- name: Install gulp client
+      run: npm install --save-dev gulp
+    - name: Run gulp
       run: gulp
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.1
